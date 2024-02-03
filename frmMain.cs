@@ -8,8 +8,6 @@ namespace SistemaDeNumeracao
     {
         private readonly Logic logic;
 
-        protected Controls controlActive;
-
         public frmMain()
         {
             InitializeComponent();
@@ -24,6 +22,13 @@ namespace SistemaDeNumeracao
             // Binário
             txtBin.TextChanged += logic.txtBin_Change;
             txtBin.KeyDown += logic.txtBin_KeyDown;
+            txtBin.Enter += logic.SetControlActive;
+            txtBin.Leave += logic.UnSetControlActive;
+        }
+
+        private void frmMain_Load(object sender, EventArgs e)
+        {
+
         }
     }
 }

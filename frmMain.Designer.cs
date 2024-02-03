@@ -169,6 +169,7 @@
             Controls.Add(groupBox1);
             Name = "frmMain";
             Text = "Conversão numérica";
+            Load += frmMain_Load;
             groupBox1.ResumeLayout(false);
             groupBox1.PerformLayout();
             groupBox2.ResumeLayout(false);

@@ -3,11 +3,13 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Forms;
 
 namespace SistemaDeNumeracao
 {
     public enum Controls
     {
+        None = 0,
         txtBin = 1,
         txtDec = 2,
         txtOct = 3,
@@ -113,7 +115,39 @@ namespace SistemaDeNumeracao
         }
         #endregion
 
+        #region AtivacaoControles
 
+        public Controls controlActive;
+        public void SetControlActive(object sender, EventArgs e)
+        {
+            var tipo = sender.GetType();
+
+            if (tipo != null) { return; }
+
+            if (tipo == typeof(TextBox))
+            {
+                var textBox = (TextBox)sender;
+
+                for (int i = 1; i <= Enum.GetValues(typeof(Controls)).Length; i++)
+                {
+                    var controlName = Enum.GetName(typeof(Controls), i);
+
+                    if (textBox.Name ==  controlName)
+                    {
+                        controlActive = (Controls)i;
+                        return;
+                    }
+                }
+            }
+        }
+
+        public void UnSetControlActive(object sender, EventArgs e)
+        {
+            controlActive = Controls.None;
+        }
+        #endregion
+
+        #region AtualizacaoDados
         public void UpdateValues()
         {
             var txtBin = formulario.txtBin.Text.Replace(" ", "").Replace(Environment.NewLine, "");
@@ -141,5 +175,6 @@ namespace SistemaDeNumeracao
                 formulario.txtHex.Text = "Invalido";
             }
         }
+        #endregion
     }
 }

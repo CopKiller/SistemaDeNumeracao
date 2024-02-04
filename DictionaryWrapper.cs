@@ -1,4 +1,4 @@
-﻿using SistemaDeNumeracao.Controles;
+﻿using SistemaDeNumeracao.Controls;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -19,11 +19,6 @@ namespace SistemaDeNumeracao
         internal TValue GetItem(TKey key)
         {
             return internalDictionary.TryGetValue(key, out TValue value) ? value : default(TValue);
-        }
-
-        public static implicit operator DictionaryWrapper<TKey, TValue>(Dictionary<Controls, object> v)
-        {
-            throw new NotImplementedException();
         }
     }
 }

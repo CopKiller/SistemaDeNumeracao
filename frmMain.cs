@@ -1,6 +1,7 @@
 
 using Microsoft.VisualBasic.Logging;
-using SistemaDeNumeracao.Controles;
+using SistemaDeNumeracao.Controls;
+using SistemaDeNumeracao.Controls.Interface;
 using System.Text;
 
 namespace SistemaDeNumeracao
@@ -20,10 +21,10 @@ namespace SistemaDeNumeracao
 
         private void InitializeLogicControl()
         {
-            controller.AddControlToDictionary(Controles.Controls.txtBin, txtBin);
-            controller.AddControlToDictionary(Controles.Controls.txtDec, txtDec);
-            controller.AddControlToDictionary(Controles.Controls.txtOct, txtOct);
-            controller.AddControlToDictionary(Controles.Controls.txtHex, txtHex);
+            controller.controlsDictionary.AddItem(ControlsType.ControlTextBinary, ControlTextBinary);
+            controller.controlsDictionary.AddItem(ControlsType.ControlTextDecimal, ControlTextDecimal);
+            controller.controlsDictionary.AddItem(ControlsType.CustomTextOctal, ControlTextOctal);
+            controller.controlsDictionary.AddItem(ControlsType.CustomTextHexadecimal, ControlTextHexadecimal);
 
             controller.SetAssignEvents();
         }

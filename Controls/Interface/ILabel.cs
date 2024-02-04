@@ -4,10 +4,10 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace SistemaDeNumeracao.Controles.Interface
+namespace SistemaDeNumeracao.Controls.Interface
 {
     internal interface ILabel
     {
-        
+        string Text { get; set; }
     }
 }

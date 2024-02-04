@@ -29,13 +29,13 @@
         private void InitializeComponent()
         {
             groupBox1 = new GroupBox();
-            txtBin = new Controles.CustomTextBoxModel();
+            ControlTextBinary = new Controls.CustomTextBoxModel();
             groupBox2 = new GroupBox();
-            txtDec = new Controles.CustomTextBoxModel();
+            ControlTextDecimal = new Controls.CustomTextBoxModel();
             groupBox3 = new GroupBox();
-            txtOct = new Controles.CustomTextBoxModel();
+            ControlTextOctal = new Controls.CustomTextBoxModel();
             groupBox4 = new GroupBox();
-            txtHex = new Controles.CustomTextBoxModel();
+            ControlTextHexadecimal = new Controls.CustomTextBoxModel();
             groupBox5 = new GroupBox();
             label2 = new Label();
             label1 = new Label();
@@ -48,7 +48,7 @@
             // 
             // groupBox1
             // 
-            groupBox1.Controls.Add(txtBin);
+            groupBox1.Controls.Add(ControlTextBinary);
             groupBox1.Location = new Point(12, 12);
             groupBox1.Name = "groupBox1";
             groupBox1.Size = new Size(133, 225);
@@ -56,19 +56,19 @@
             groupBox1.TabStop = false;
             groupBox1.Text = "Binário";
             // 
-            // txtBin
+            // ControlTextBinary
             // 
-            txtBin.Font = new Font("Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            txtBin.Location = new Point(6, 22);
-            txtBin.Multiline = true;
-            txtBin.Name = "txtBin";
-            txtBin.ScrollBars = ScrollBars.Vertical;
-            txtBin.Size = new Size(121, 183);
-            txtBin.TabIndex = 8;
+            ControlTextBinary.Font = new Font("Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            ControlTextBinary.Location = new Point(6, 22);
+            ControlTextBinary.Multiline = true;
+            ControlTextBinary.Name = "ControlTextBinary";
+            ControlTextBinary.ScrollBars = ScrollBars.Vertical;
+            ControlTextBinary.Size = new Size(121, 183);
+            ControlTextBinary.TabIndex = 8;
             // 
             // groupBox2
             // 
-            groupBox2.Controls.Add(txtDec);
+            groupBox2.Controls.Add(ControlTextDecimal);
             groupBox2.Location = new Point(152, 12);
             groupBox2.Name = "groupBox2";
             groupBox2.Size = new Size(133, 71);
@@ -76,17 +76,17 @@
             groupBox2.TabStop = false;
             groupBox2.Text = "Decimal";
             // 
-            // txtDec
+            // ControlTextDecimal
             // 
-            txtDec.Font = new Font("Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            txtDec.Location = new Point(6, 22);
-            txtDec.Name = "txtDec";
-            txtDec.Size = new Size(121, 29);
-            txtDec.TabIndex = 8;
+            ControlTextDecimal.Font = new Font("Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            ControlTextDecimal.Location = new Point(6, 22);
+            ControlTextDecimal.Name = "ControlTextDecimal";
+            ControlTextDecimal.Size = new Size(121, 29);
+            ControlTextDecimal.TabIndex = 8;
             // 
             // groupBox3
             // 
-            groupBox3.Controls.Add(txtOct);
+            groupBox3.Controls.Add(ControlTextOctal);
             groupBox3.Location = new Point(152, 89);
             groupBox3.Name = "groupBox3";
             groupBox3.Size = new Size(133, 71);
@@ -94,17 +94,17 @@
             groupBox3.TabStop = false;
             groupBox3.Text = "Octal";
             // 
-            // txtOct
+            // ControlTextOctal
             // 
-            txtOct.Font = new Font("Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            txtOct.Location = new Point(6, 21);
-            txtOct.Name = "txtOct";
-            txtOct.Size = new Size(121, 29);
-            txtOct.TabIndex = 9;
+            ControlTextOctal.Font = new Font("Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            ControlTextOctal.Location = new Point(6, 21);
+            ControlTextOctal.Name = "ControlTextOctal";
+            ControlTextOctal.Size = new Size(121, 29);
+            ControlTextOctal.TabIndex = 9;
             // 
             // groupBox4
             // 
-            groupBox4.Controls.Add(txtHex);
+            groupBox4.Controls.Add(ControlTextHexadecimal);
             groupBox4.Location = new Point(152, 166);
             groupBox4.Name = "groupBox4";
             groupBox4.Size = new Size(133, 71);
@@ -112,13 +112,13 @@
             groupBox4.TabStop = false;
             groupBox4.Text = "Hexadecimal";
             // 
-            // txtHex
+            // ControlTextHexadecimal
             // 
-            txtHex.Font = new Font("Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            txtHex.Location = new Point(6, 21);
-            txtHex.Name = "txtHex";
-            txtHex.Size = new Size(121, 29);
-            txtHex.TabIndex = 10;
+            ControlTextHexadecimal.Font = new Font("Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            ControlTextHexadecimal.Location = new Point(6, 21);
+            ControlTextHexadecimal.Name = "ControlTextHexadecimal";
+            ControlTextHexadecimal.Size = new Size(121, 29);
+            ControlTextHexadecimal.TabIndex = 10;
             // 
             // groupBox5
             // 
@@ -184,9 +184,9 @@
         private GroupBox groupBox5;
         private Label label2;
         private Label label1;
-        private Controles.CustomTextBoxModel txtBin;
-        private Controles.CustomTextBoxModel txtDec;
-        private Controles.CustomTextBoxModel txtOct;
-        private Controles.CustomTextBoxModel txtHex;
+        private Controls.CustomTextBoxModel ControlTextBinary;
+        private Controls.CustomTextBoxModel ControlTextDecimal;
+        private Controls.CustomTextBoxModel ControlTextOctal;
+        private Controls.CustomTextBoxModel ControlTextHexadecimal;
     }
 }

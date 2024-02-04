@@ -9,7 +9,7 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <Compile Update="Control\CustomLabelModel.cs" />
+    <Compile Update="Controls\CustomLabelModel.cs" />
   </ItemGroup>
 
 </Project>

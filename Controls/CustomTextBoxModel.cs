@@ -1,9 +1,9 @@
-﻿using SistemaDeNumeracao.Controles.Interface;
+﻿using SistemaDeNumeracao.Controls.Interface;
 using System.Runtime.CompilerServices;
 
-namespace SistemaDeNumeracao.Controles
+namespace SistemaDeNumeracao.Controls
 {
-    internal class CustomTextBoxModel : TextBox, ITextBox
+    internal class CustomTextBoxModel : TextBox, ITextBox, IFusionControls
     {
         // Implementação da interface ITextBox
         public new int SelectionStart { get { return base.SelectionStart; } set { base.SelectionStart = value; } }

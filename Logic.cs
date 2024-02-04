@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using static System.Net.Mime.MediaTypeNames;
 
 namespace SistemaDeNumeracao
 {
@@ -22,6 +23,10 @@ namespace SistemaDeNumeracao
         public Logic(frmMain frm)
         {
             formulario = frm;
+
+            // Ativa o binário por padrão.
+            controlActive = Controls.txtBin;
+
         }
         #endregion
 
@@ -30,34 +35,12 @@ namespace SistemaDeNumeracao
         // dentro do método de processamento de formato binário, retira todos os espaços e quebra de linha no início
         // do algarítmo, foi adaptado também para apagar quebras de linha apenas no binário é necessário!
         bool txtBin_BackSpace = false;
-        public void txtBin_Change(object sender, EventArgs e)
+
+        private string FormatBinaryToLayout(string txtBin)
         {
             // Limites de caracteres por linha e caracteres para adicionar uma quebra de linha
             int characterLimit = 8;
             int characterToSpace = 4;
-
-            // Remova os espaços em branco do texto
-            var txtBin = formulario.txtBin.Text;
-
-            // Verifique se há algo no campo binário
-            if (string.IsNullOrWhiteSpace(txtBin))
-            {
-                // Lidar com o caso em que não há nada no campo binário
-                UpdateValues();
-                return;
-            }
-
-            // Remova o manipulador de eventos temporariamente
-            formulario.txtBin.TextChanged -= txtBin_Change;
-
-            if (txtBin_BackSpace)
-            {
-                txtBin_BackSpace = false;
-
-                // Adicione o manipulador de eventos de volta
-                formulario.txtBin.TextChanged += txtBin_Change;
-                return;
-            }
 
             StringBuilder novoTexto = new StringBuilder();
 
@@ -76,18 +59,33 @@ namespace SistemaDeNumeracao
                     novoTexto.Append(Environment.NewLine);
             }
 
-            formulario.txtBin.Text = string.Empty;
-            formulario.txtBin.Text += novoTexto.ToString();
+            return novoTexto.ToString();
+        }
+        public void txtBin_Change(object sender, EventArgs e)
+        {
+            var text = ((TextBox)sender).Text;
 
-            formulario.txtBin.SelectionStart = novoTexto.Length;
+            // Remova o manipulador de eventos temporariamente
+            formulario.txtBin.TextChanged -= txtBin_Change;
 
-            // Atualize os TextBoxes
-            UpdateValues();
+            // Verifique se o controle atual está ativo.
+            if (controlActive == Controls.txtBin)
+            {
+                if (txtBin_BackSpace)
+                {
+                    txtBin_BackSpace = false;
+                }
+                else
+                {
+                    UpdateValues();
 
-            // Adicione o manipulador de eventos de volta
+                    formulario.txtBin.SelectionStart = formulario.txtBin.TextLength;
+                }
+            }
+
+            // Acione o manipulador de eventos.
             formulario.txtBin.TextChanged += txtBin_Change;
         }
-
         public void txtBin_KeyDown(object sender, KeyEventArgs e)
         {
             if (e.KeyCode == Keys.Back)
@@ -108,10 +106,23 @@ namespace SistemaDeNumeracao
                 }
             }
         }
-
         private bool IsBin(string bin)
         {
             return bin.All(c => c == '0' || c == '1');
+        }
+        #endregion
+
+        #region Decimal
+        public void txtDec_Change(object sender, EventArgs e)
+        {
+            // Desative o manipulador de eventos temporariamente.
+            formulario.txtBin.TextChanged -= txtDec_Change;
+
+            if (controlActive == Controls.txtDec)
+                UpdateValues();
+
+            // Ative o manipulador de eventos.
+            formulario.txtBin.TextChanged += txtDec_Change;
         }
         #endregion
 
@@ -122,7 +133,7 @@ namespace SistemaDeNumeracao
         {
             var tipo = sender.GetType();
 
-            if (tipo != null) { return; }
+            if (tipo == null) { return; }
 
             if (tipo == typeof(TextBox))
             {
@@ -132,7 +143,7 @@ namespace SistemaDeNumeracao
                 {
                     var controlName = Enum.GetName(typeof(Controls), i);
 
-                    if (textBox.Name ==  controlName)
+                    if (textBox.Name == controlName)
                     {
                         controlActive = (Controls)i;
                         return;
@@ -150,29 +161,57 @@ namespace SistemaDeNumeracao
         #region AtualizacaoDados
         public void UpdateValues()
         {
-            var txtBin = formulario.txtBin.Text.Replace(" ", "").Replace(Environment.NewLine, "");
-
-            if (string.IsNullOrWhiteSpace(txtBin))
+            switch (controlActive)
             {
-                formulario.txtDec.Text = "";
-                formulario.txtOct.Text = "";
-                formulario.txtHex.Text = "";
-                return;
-            }
+                case Controls.None: break;
+                case Controls.txtBin:
+                    var txtBin = formulario.txtBin.Text.Replace(" ", "").Replace(Environment.NewLine, "");
 
-            if (IsBin(txtBin))
-            {
-                int valorDecimal = Convert.ToInt32(txtBin, 2);
+                    if (string.IsNullOrWhiteSpace(txtBin))
+                    {
+                        formulario.txtDec.Text = "";
+                        formulario.txtOct.Text = "";
+                        formulario.txtHex.Text = "";
+                        return;
+                    }
+                    if (IsBin(txtBin))
+                    {
+                        int valorDecimal = Convert.ToInt32(txtBin, 2);
 
-                formulario.txtDec.Text = valorDecimal.ToString();
-                formulario.txtOct.Text = Convert.ToString(valorDecimal, 8);
-                formulario.txtHex.Text = Convert.ToString(valorDecimal, 16).ToUpper();
-            }
-            else
-            {
-                formulario.txtDec.Text = "Invalido";
-                formulario.txtOct.Text = "Invalido";
-                formulario.txtHex.Text = "Invalido";
+                        formulario.txtBin.Text = FormatBinaryToLayout(txtBin);
+                        formulario.txtDec.Text = valorDecimal.ToString();
+                        formulario.txtOct.Text = Convert.ToString(valorDecimal, 8);
+                        formulario.txtHex.Text = Convert.ToString(valorDecimal, 16).ToUpper();
+                    }
+                    else
+                    {
+                        formulario.txtDec.Text = "Invalido";
+                        formulario.txtOct.Text = "Invalido";
+                        formulario.txtHex.Text = "Invalido";
+                    }
+                    break;
+                case Controls.txtDec:
+                    if (int.TryParse(formulario.txtDec.Text, out int txtDec))
+                    {
+                        formulario.txtBin.Text = FormatBinaryToLayout(Convert.ToString(txtDec, 2));
+                        formulario.txtDec.Text = Convert.ToString(txtDec, 10);
+                        formulario.txtOct.Text = Convert.ToString(txtDec, 8);
+                        formulario.txtHex.Text = txtDec >= 0
+                            ? Convert.ToString(txtDec, 16).ToUpper()
+                            : "-" + Convert.ToString(Math.Abs(txtDec), 16).ToUpper();
+                    }
+                    else
+                    {
+                        formulario.txtBin.Text = "Invalido";
+                        formulario.txtOct.Text = "Invalido";
+                        formulario.txtHex.Text = "Invalido";
+                    }
+
+                    break;
+                case Controls.txtOct: break;
+                case Controls.txtHex: break;
+
+                default: break;
             }
         }
         #endregion

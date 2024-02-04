@@ -98,7 +98,6 @@
             // 
             // txtOct
             // 
-            txtOct.Enabled = false;
             txtOct.Font = new Font("Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
             txtOct.Location = new Point(6, 22);
             txtOct.Name = "txtOct";
@@ -119,7 +118,6 @@
             // 
             // txtHex
             // 
-            txtHex.Enabled = false;
             txtHex.Font = new Font("Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
             txtHex.Location = new Point(6, 22);
             txtHex.Name = "txtHex";

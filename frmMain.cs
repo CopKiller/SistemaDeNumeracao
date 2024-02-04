@@ -24,6 +24,11 @@ namespace SistemaDeNumeracao
             txtBin.KeyDown += logic.txtBin_KeyDown;
             txtBin.Enter += logic.SetControlActive;
             txtBin.Leave += logic.UnSetControlActive;
+
+            // Decimal
+            txtDec.TextChanged += logic.txtDec_Change;
+            txtDec.Enter += logic.SetControlActive;
+            txtDec.Leave += logic.UnSetControlActive;
         }
 
         private void frmMain_Load(object sender, EventArgs e)

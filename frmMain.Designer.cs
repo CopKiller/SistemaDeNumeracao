@@ -29,13 +29,13 @@
         private void InitializeComponent()
         {
             groupBox1 = new GroupBox();
-            txtBin = new TextBox();
+            txtBin = new Controles.CustomTextBoxModel();
             groupBox2 = new GroupBox();
-            txtDec = new TextBox();
+            txtDec = new Controles.CustomTextBoxModel();
             groupBox3 = new GroupBox();
-            txtOct = new TextBox();
+            txtOct = new Controles.CustomTextBoxModel();
             groupBox4 = new GroupBox();
-            txtHex = new TextBox();
+            txtHex = new Controles.CustomTextBoxModel();
             groupBox5 = new GroupBox();
             label2 = new Label();
             label1 = new Label();
@@ -64,7 +64,7 @@
             txtBin.Name = "txtBin";
             txtBin.ScrollBars = ScrollBars.Vertical;
             txtBin.Size = new Size(121, 183);
-            txtBin.TabIndex = 0;
+            txtBin.TabIndex = 8;
             // 
             // groupBox2
             // 
@@ -81,10 +81,8 @@
             txtDec.Font = new Font("Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
             txtDec.Location = new Point(6, 22);
             txtDec.Name = "txtDec";
-            txtDec.Size = new Size(110, 29);
-            txtDec.TabIndex = 2;
-            txtDec.TextAlign = HorizontalAlignment.Center;
-            txtDec.WordWrap = false;
+            txtDec.Size = new Size(121, 29);
+            txtDec.TabIndex = 8;
             // 
             // groupBox3
             // 
@@ -99,12 +97,10 @@
             // txtOct
             // 
             txtOct.Font = new Font("Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            txtOct.Location = new Point(6, 22);
+            txtOct.Location = new Point(6, 21);
             txtOct.Name = "txtOct";
-            txtOct.Size = new Size(110, 29);
-            txtOct.TabIndex = 2;
-            txtOct.TextAlign = HorizontalAlignment.Center;
-            txtOct.WordWrap = false;
+            txtOct.Size = new Size(121, 29);
+            txtOct.TabIndex = 9;
             // 
             // groupBox4
             // 
@@ -119,12 +115,10 @@
             // txtHex
             // 
             txtHex.Font = new Font("Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            txtHex.Location = new Point(6, 22);
+            txtHex.Location = new Point(6, 21);
             txtHex.Name = "txtHex";
-            txtHex.Size = new Size(110, 29);
-            txtHex.TabIndex = 2;
-            txtHex.TextAlign = HorizontalAlignment.Center;
-            txtHex.WordWrap = false;
+            txtHex.Size = new Size(121, 29);
+            txtHex.TabIndex = 10;
             // 
             // groupBox5
             // 
@@ -159,7 +153,7 @@
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(509, 251);
+            ClientSize = new Size(509, 254);
             Controls.Add(groupBox5);
             Controls.Add(groupBox4);
             Controls.Add(groupBox3);
@@ -190,9 +184,9 @@
         private GroupBox groupBox5;
         private Label label2;
         private Label label1;
-        public TextBox txtBin;
-        public TextBox txtDec;
-        public TextBox txtOct;
-        public TextBox txtHex;
+        private Controles.CustomTextBoxModel txtBin;
+        private Controles.CustomTextBoxModel txtDec;
+        private Controles.CustomTextBoxModel txtOct;
+        private Controles.CustomTextBoxModel txtHex;
     }
 }

@@ -1,34 +1,31 @@
 
 using Microsoft.VisualBasic.Logging;
+using SistemaDeNumeracao.Controles;
 using System.Text;
 
 namespace SistemaDeNumeracao
 {
     public partial class frmMain : Form
     {
-        private readonly Logic logic;
+        private readonly LogicControl controller;
 
         public frmMain()
         {
             InitializeComponent();
 
-            logic = new Logic(this);
+            controller = new LogicControl();
 
-            SetAssignEvents();
+            InitializeLogicControl();
         }
 
-        private void SetAssignEvents()
+        private void InitializeLogicControl()
         {
-            // Binário
-            txtBin.TextChanged += logic.txtBin_Change;
-            txtBin.KeyDown += logic.txtBin_KeyDown;
-            txtBin.Enter += logic.SetControlActive;
-            txtBin.Leave += logic.UnSetControlActive;
+            controller.AddControlToDictionary(Controles.Controls.txtBin, txtBin);
+            controller.AddControlToDictionary(Controles.Controls.txtDec, txtDec);
+            controller.AddControlToDictionary(Controles.Controls.txtOct, txtOct);
+            controller.AddControlToDictionary(Controles.Controls.txtHex, txtHex);
 
-            // Decimal
-            txtDec.TextChanged += logic.txtDec_Change;
-            txtDec.Enter += logic.SetControlActive;
-            txtDec.Leave += logic.UnSetControlActive;
+            controller.SetAssignEvents();
         }
 
         private void frmMain_Load(object sender, EventArgs e)

@@ -3,7 +3,7 @@ using System.Runtime.CompilerServices;
 
 namespace SistemaDeNumeracao.Controls
 {
-    internal class CustomTextBoxModel : TextBox, ITextBox, IFusionControls
+    internal class CustomTextBoxModel : TextBox, ITextBox, IControls
     {
         // Implementação da interface ITextBox
         public new int SelectionStart { get { return base.SelectionStart; } set { base.SelectionStart = value; } }

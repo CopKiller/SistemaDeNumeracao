@@ -37,8 +37,8 @@
             groupBox4 = new GroupBox();
             ControlTextHexadecimal = new Controls.CustomTextBoxModel();
             groupBox5 = new GroupBox();
-            label2 = new Label();
-            label1 = new Label();
+            ControlLabelBit = new Controls.CustomLabelModel();
+            ControlLabelByte = new Controls.CustomLabelModel();
             groupBox1.SuspendLayout();
             groupBox2.SuspendLayout();
             groupBox3.SuspendLayout();
@@ -122,8 +122,8 @@
             // 
             // groupBox5
             // 
-            groupBox5.Controls.Add(label2);
-            groupBox5.Controls.Add(label1);
+            groupBox5.Controls.Add(ControlLabelByte);
+            groupBox5.Controls.Add(ControlLabelBit);
             groupBox5.Location = new Point(291, 12);
             groupBox5.Name = "groupBox5";
             groupBox5.Size = new Size(200, 225);
@@ -131,23 +131,23 @@
             groupBox5.TabStop = false;
             groupBox5.Text = "Dados técnicos";
             // 
-            // label2
+            // ControlLabelBit
             // 
-            label2.AutoSize = true;
-            label2.Location = new Point(17, 77);
-            label2.Name = "label2";
-            label2.Size = new Size(47, 15);
-            label2.TabIndex = 1;
-            label2.Text = "Bytes: 0";
+            ControlLabelBit.AutoSize = true;
+            ControlLabelBit.Location = new Point(6, 30);
+            ControlLabelBit.Name = "ControlLabelBit";
+            ControlLabelBit.Size = new Size(29, 15);
+            ControlLabelBit.TabIndex = 2;
+            ControlLabelBit.Text = "Bits:";
             // 
-            // label1
+            // ControlLabelByte
             // 
-            label1.AutoSize = true;
-            label1.Location = new Point(17, 36);
-            label1.Name = "label1";
-            label1.Size = new Size(38, 15);
-            label1.TabIndex = 0;
-            label1.Text = "Bits: 0";
+            ControlLabelByte.AutoSize = true;
+            ControlLabelByte.Location = new Point(6, 56);
+            ControlLabelByte.Name = "ControlLabelByte";
+            ControlLabelByte.Size = new Size(38, 15);
+            ControlLabelByte.TabIndex = 3;
+            ControlLabelByte.Text = "Bytes:";
             // 
             // frmMain
             // 
@@ -188,5 +188,7 @@
         private Controls.CustomTextBoxModel ControlTextDecimal;
         private Controls.CustomTextBoxModel ControlTextOctal;
         private Controls.CustomTextBoxModel ControlTextHexadecimal;
+        private Controls.CustomLabelModel ControlLabelBit;
+        private Controls.CustomLabelModel ControlLabelByte;
     }
 }

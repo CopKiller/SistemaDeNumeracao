@@ -3,7 +3,7 @@ using System.Runtime.CompilerServices;
 
 namespace SistemaDeNumeracao.Controls
 {
-    internal class CustomLabelModel : Label, ILabel, IFusionControls
+    internal class CustomLabelModel : Label, ILabel, IControls
     {
         // Implementação da interface ITextBox
         public new string Text
@@ -12,8 +12,8 @@ namespace SistemaDeNumeracao.Controls
             set { base.Text = value; }
         }
 
-        int IFusionControls.TextLength => throw new NotImplementedException();
-        int IFusionControls.SelectionStart { get => throw new NotImplementedException(); set => throw new NotImplementedException(); }
-        int IFusionControls.SelectionLength { get => throw new NotImplementedException(); set => throw new NotImplementedException(); }
+        int IControls.TextLength => throw new NotImplementedException();
+        int IControls.SelectionStart { get => throw new NotImplementedException(); set => throw new NotImplementedException(); }
+        int IControls.SelectionLength { get => throw new NotImplementedException(); set => throw new NotImplementedException(); }
     }
 }

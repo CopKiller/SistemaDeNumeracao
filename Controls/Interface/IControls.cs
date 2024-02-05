@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace SistemaDeNumeracao.Controls.Interface
 {
-    internal interface IFusionControls
+    internal interface IControls
     {
         int TextLength { get; }
         int SelectionStart { get; set; }

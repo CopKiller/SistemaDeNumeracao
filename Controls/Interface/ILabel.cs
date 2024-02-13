@@ -6,8 +6,8 @@ using System.Threading.Tasks;
 
 namespace SistemaDeNumeracao.Controls.Interface
 {
-    internal interface ILabel
+    internal interface ILabel : IControls
     {
-        string Text { get; set; }
+        
     }
 }

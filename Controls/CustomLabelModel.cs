@@ -12,8 +12,8 @@ namespace SistemaDeNumeracao.Controls
             set { base.Text = value; }
         }
 
-        int IControls.TextLength => throw new NotImplementedException();
-        int IControls.SelectionStart { get => throw new NotImplementedException(); set => throw new NotImplementedException(); }
-        int IControls.SelectionLength { get => throw new NotImplementedException(); set => throw new NotImplementedException(); }
+        //int IControls.TextLength => throw new NotImplementedException();
+        //int IControls.SelectionStart { get => throw new NotImplementedException(); set => throw new NotImplementedException(); }
+        //int IControls.SelectionLength { get => throw new NotImplementedException(); set => throw new NotImplementedException(); }
     }
 }

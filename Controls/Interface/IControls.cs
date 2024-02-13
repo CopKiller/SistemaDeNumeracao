@@ -8,9 +8,6 @@ namespace SistemaDeNumeracao.Controls.Interface
 {
     internal interface IControls
     {
-        int TextLength { get; }
-        int SelectionStart { get; set; }
-        int SelectionLength { get; set; }
         string Text { get; set; }
         event EventHandler TextChanged;
         event KeyEventHandler KeyDown;

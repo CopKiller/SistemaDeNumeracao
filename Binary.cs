@@ -1,4 +1,5 @@
-﻿using SistemaDeNumeracao.Utils;
+﻿using SistemaDeNumeracao.Controls.Interface;
+using SistemaDeNumeracao.Utils;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -30,7 +31,7 @@ namespace SistemaDeNumeracao.Logic.Binary
         }
         public void ControlTextBinary_Change(object sender, EventArgs e)
         {
-            var controlElement = logicControl.controls.GetItem(ControlsType.ControlTextBinary);
+            var controlElement = logicControl.controls.GetItem(ControlsType.ControlTextBinary) as ITextBox;
             var text = controlElement.Text;
 
             // Remova o manipulador de eventos temporariamente
@@ -53,13 +54,13 @@ namespace SistemaDeNumeracao.Logic.Binary
 
 
             // Acione o manipulador de eventos.
-            logicControl.controls.GetItem(ControlsType.ControlTextBinary).TextChanged += ControlTextBinary_Change;
+            logicControl.controls.GetItem(key: ControlsType.ControlTextBinary).TextChanged += ControlTextBinary_Change;
         }
         public void ControlTextBinary_KeyDown(object sender, KeyEventArgs e)
         {
             if (e.KeyCode == Keys.Back)
             {
-                var controlElement = logicControl.controls.GetItem(ControlsType.ControlTextBinary);
+                var controlElement = (ITextBox)logicControl.controls.GetItem(ControlsType.ControlTextBinary);
                 var sstring = controlElement.Text;
 
                 if (controlElement.SelectionLength == 0 && controlElement.SelectionStart > 0)

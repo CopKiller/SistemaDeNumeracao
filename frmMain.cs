@@ -30,10 +30,5 @@ namespace SistemaDeNumeracao
 
             controller.SetAssignEvents();
         }
-
-        private void frmMain_Load(object sender, EventArgs e)
-        {
-
-        }
     }
 }

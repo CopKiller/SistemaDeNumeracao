@@ -1,10 +1,10 @@
 ﻿using SistemaDeNumeracao.Controls;
 using SistemaDeNumeracao.Controls.Interface;
 using SistemaDeNumeracao.Utils;
-using SistemaDeNumeracao.Logic.Binary;
 using SistemaDeNumeracao.Logic.Decimal;
 using SistemaDeNumeracao.Logic.Octal;
 using SistemaDeNumeracao.Logic.Hexadecimal;
+using SistemaDeNumeracao.Logic.Binary;
 
 namespace SistemaDeNumeracao.Logic
 {

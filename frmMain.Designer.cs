@@ -161,7 +161,6 @@
             Controls.Add(groupBox1);
             Name = "frmMain";
             Text = "Conversão numérica";
-            Load += frmMain_Load;
             groupBox1.ResumeLayout(false);
             groupBox1.PerformLayout();
             groupBox2.ResumeLayout(false);
@@ -182,8 +181,6 @@
         private GroupBox groupBox3;
         private GroupBox groupBox4;
         private GroupBox groupBox5;
-        private Label label2;
-        private Label label1;
         private Controls.CustomTextBoxModel ControlTextBinary;
         private Controls.CustomTextBoxModel ControlTextDecimal;
         private Controls.CustomTextBoxModel ControlTextOctal;

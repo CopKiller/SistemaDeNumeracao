@@ -9,14 +9,14 @@ namespace SistemaDeNumeracao.Utils
 {
     internal class DictionaryWrapper<TKey, TValue>
     {
-        private readonly Dictionary<TKey, TValue> internalDictionary = new Dictionary<TKey, TValue>();
+        private readonly Dictionary<TKey, TValue> internalDictionary = new();
 
         internal void AddItem(TKey key, TValue value)
         {
             internalDictionary[key] = value;
         }
 
-        internal TValue GetItem(TKey key)
+        internal TValue? GetItem(TKey key)
         {
             return internalDictionary.TryGetValue(key, out TValue value) ? value : default;
         }

@@ -12,4 +12,8 @@
     <Compile Update="Controls\CustomLabelModel.cs" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Folder Include="Logic\Binary\" />
+  </ItemGroup>
+
 </Project>
